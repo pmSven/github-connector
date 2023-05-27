@@ -27,7 +27,13 @@ kotlin {
         }
     }
     sourceSets {
-        val nativeMain by getting
+        val nativeMain by getting {
+            dependencies {
+                implementation("com.github.ajalt.clikt:clikt:3.5.2")
+                implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
+                implementation("io.insert-koin:koin-core:3.4.0")
+            }
+        }
         val nativeTest by getting
     }
 }
