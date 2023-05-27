@@ -1,5 +1,6 @@
 plugins {
     kotlin("multiplatform") version "1.8.21"
+    kotlin("plugin.serialization") version "1.8.21"
 }
 
 group = "sven.maack"
@@ -26,14 +27,22 @@ kotlin {
             }
         }
     }
+
     sourceSets {
         val nativeMain by getting {
             dependencies {
                 implementation("com.github.ajalt.clikt:clikt:3.5.2")
+
                 implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
+
                 implementation("io.insert-koin:koin-core:3.4.0")
+
+                implementation("io.ktor:ktor-client-core:2.3.0")
+                implementation("io.ktor:ktor-client-curl:2.3.0")
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.0")
             }
         }
         val nativeTest by getting
     }
 }
+//apt-get install libcurl4-gnutls-dev

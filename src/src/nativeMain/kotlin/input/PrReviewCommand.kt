@@ -1,7 +1,7 @@
 package input
 
 import InputParser
-import ReviewData
+import ReviewInput
 import com.github.ajalt.clikt.core.CliktCommand
 import com.github.ajalt.clikt.core.context
 import com.github.ajalt.clikt.output.CliktHelpFormatter
@@ -36,9 +36,9 @@ class PrReviewCommand : CliktCommand(name="PR Reviews"), InputParser {
 
     override fun run() {}
 
-    override fun parse(args: Array<String>) : ReviewData {
+    override fun parse(args: Array<String>) : ReviewInput {
         main(args)
-        return ReviewData(
+        return ReviewInput(
             accountNames = accountNames,
             after = after.toLocalDateTime(TimeZone.currentSystemDefault()),
             token = token
